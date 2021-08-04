@@ -55,7 +55,7 @@
 
                     <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:background="@null"
                         android:text="@string/search"
                         android:textSize="20sp"/>
@@ -104,15 +104,15 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="bottom"
         app:contentInsetStart="0dp"
-        app:fabCradleMargin="@dimen/search_margin"
-        app:fabCradleRoundedCornerRadius="@dimen/search_margin"
         app:fabAlignmentMode="center"
         app:hideOnScroll="true">
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:labelVisibilityMode="unlabeled"
-            app:menu="@menu/app_bar_menu"/>
+            app:menu="@menu/app_bar_menu"
+            android:background="@color/transparent"
+            android:outlineSpotShadowColor="@color/transparent"/>
     </com.google.android.material.bottomappbar.BottomAppBar>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

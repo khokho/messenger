@@ -10,4 +10,5 @@
     <color name="half_transp_white">#B0FFFFFF</color>
     <color name="app_blue">#5479f1</color>
     <color name="text_grey">#666666</color>
+    <color name="transparent">#00000000</color>
 </resources>
