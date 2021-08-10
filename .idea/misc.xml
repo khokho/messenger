@@ -6,13 +6,17 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26974358974358975" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.26974358974358975" />
         <entry key="app/src/main/res/drawable/round_corners.xml" value="0.26974358974358975" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.26243526138080764" />
+        <entry key="app/src/main/res/drawable/round_corners_gray.xml" value="0.3697916666666667" />
+        <entry key="app/src/main/res/layout/activity_auth.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_auth_signin.xml" value="0.3536458333333333" />
+        <entry key="app/src/main/res/layout/activity_auth_signup.xml" value="0.3536458333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/menu/app_bar_menu.xml" value="0.2578125" />
         <entry key="app/src/main/res/menu/search_bar.xml" value="0.2578125" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

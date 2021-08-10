@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Messenger</string>
     <string name="search">Search</string>
+    <string name="enter_your_nickname">Enter your Nickname</string>
+    <string name="profile_placeholder">Profile placeholder</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="sing_in">SING IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="what_i_do">What I do</string>
+    <string name="not_registered">Not registered?</string>
 </resources>

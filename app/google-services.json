@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890860218536",
+    "project_id": "messenger-f2e2b",
+    "storage_bucket": "messenger-f2e2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890860218536:android:101e25997f44a5bb853a9d",
+        "android_client_info": {
+          "package_name": "ge.ttopu18alkhok18.messenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890860218536-70qate6g3fq51g693iabmhp3bp141qt5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2NhNhtn0IAOkAuL9Y7Nr1ONv_6XmSoOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890860218536-70qate6g3fq51g693iabmhp3bp141qt5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
