@@ -15,10 +15,12 @@
         android:src="@drawable/avatar_image_placeholder"
         app:layout_constraintBottom_toTopOf="@+id/username_edittext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/profile_picture" />
 
 
     <EditText
+        android:hint="@string/username"
         android:id="@+id/username_edittext"
         android:enabled="false"
         style="@style/default_text_input"
@@ -31,6 +33,7 @@
         tools:ignore="TextContrastCheck" />
 
     <EditText
+        android:hint="@string/job"
         android:id="@+id/job_edittext"
         style="@style/default_text_input"
         android:layout_marginTop="16dp"
