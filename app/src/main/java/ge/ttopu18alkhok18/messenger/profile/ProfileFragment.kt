@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
@@ -68,7 +70,7 @@ class ProfileFragment: Fragment(), IProfileView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.fetchProfile()
-
+        startLoading()
         binding.signOutButton.setOnClickListener {
             signOut(view.context)
         }
@@ -83,6 +85,34 @@ class ProfileFragment: Fragment(), IProfileView {
 
     }
 
+    fun startLoading() {
+        val contentViews = listOf(
+            binding.profilePictureImageView,
+            binding.jobEdittext,
+            binding.usernameEdittext,
+            binding.updateButton,
+            binding.signOutButton,
+        )
+        contentViews.map {
+            it.isGone = true
+        }
+        binding.progressBar.isGone = false
+    }
+    fun stopLoading() {
+        val contentViews = listOf(
+            binding.profilePictureImageView,
+            binding.jobEdittext,
+            binding.usernameEdittext,
+            binding.updateButton,
+            binding.signOutButton,
+        )
+        contentViews.map {
+            it.isGone = false
+        }
+        binding.progressBar.isGone = true
+    }
+
+
     override fun displayProfile(profile: UserProfile) {
         binding.usernameEdittext.setText(profile.username)
         Glide
@@ -92,6 +122,7 @@ class ProfileFragment: Fragment(), IProfileView {
             .placeholder(R.drawable.avatar_image_placeholder)
             .into(binding.profilePictureImageView)
         binding.jobEdittext.setText(profile.job)
+        stopLoading()
     }
 
 }
