@@ -22,7 +22,7 @@ import ge.ttopu18alkhok18.messenger.auth.AuthSignInActivity
 import ge.ttopu18alkhok18.messenger.databinding.HomeProfilePageFragmentBinding
 import ge.ttopu18alkhok18.messenger.util.Util
 
-class ProfileFragment: Fragment() {
+class ProfileFragment: Fragment(), IProfileView {
 
     private lateinit var getContent: ActivityResultLauncher<String>
 
@@ -30,6 +30,7 @@ class ProfileFragment: Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private var presenter = ProfilePresenter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,18 +40,13 @@ class ProfileFragment: Fragment() {
         getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             Log.v("profile_fragment", uri.toString())
             uri?.let {
-                val storageRef = Firebase.storage.reference
-                val username = Util.mailToUserName(Firebase.auth.currentUser?.email!!)
-                val profileRef = storageRef.child("profiles/${username}")
-                val uploadTask = profileRef.putFile(it)
-                // Register observers to listen for when the download is done or if it fails
-                uploadTask.addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        loadProfilePicture()
-                    } else {
-                        Log.v("profile_fragment", "upload failed")
-                    }
-                }
+                presenter.updateImage(it)
+                Glide
+                    .with(this)
+                    .load(it)
+                    .circleCrop()
+                    .placeholder(R.drawable.avatar_image_placeholder)
+                    .into(binding.profilePictureImageView)
             }
         }
         _binding = HomeProfilePageFragmentBinding.inflate(inflater, container, false)
@@ -59,57 +55,43 @@ class ProfileFragment: Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        presenter.detachView()
         _binding = null
     }
 
     private fun signOut(context: Context) {
-        Firebase.auth.signOut()
+        presenter.signOut()
         val intent = Intent(context, AuthSignInActivity::class.java)
         startActivity(intent)
     }
 
-    private fun loadProfilePicture() {
-        val username = Util.mailToUserName(Firebase.auth.currentUser?.email!!)
-        val storageRef = Firebase.storage.reference
-        val profileRef = storageRef.child("profiles/${username}")
-        profileRef.downloadUrl.addOnSuccessListener {
-            Log.v("profile_fragment", it.toString())
-            Glide
-                .with(this)
-                .load(it)
-                .circleCrop()
-                .placeholder(R.drawable.avatar_image_placeholder)
-                .into(binding.profilePictureImageView);
-        }
-    }
-
-    private fun updateJob(username: String, job: String) {
-        Log.v("profile_fragment", "${username}'s job updated to $job")
-        Firebase.database.getReference("jobs").child(username).setValue(job)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val username = Util.mailToUserName(Firebase.auth.currentUser?.email!!)
-        binding.usernameEdittext.setText(username)
-
-        loadProfilePicture()
-
-        Firebase.database.getReference("jobs").child(username).get().addOnSuccessListener {
-            binding.jobEdittext.setText(it.getValue<String>())
-        }
+        presenter.fetchProfile()
 
         binding.signOutButton.setOnClickListener {
             signOut(view.context)
         }
 
         binding.updateButton.setOnClickListener {
-            updateJob(username, binding.jobEdittext.text.toString())
+            presenter.updateJob(binding.jobEdittext.text.toString())
         }
 
         binding.profilePictureImageView.setOnClickListener {
             getContent.launch("image/*")
         }
+
+    }
+
+    override fun displayProfile(profile: UserProfile) {
+        binding.usernameEdittext.setText(profile.username)
+        Glide
+            .with(this)
+            .load(profile.profilePicURL)
+            .circleCrop()
+            .placeholder(R.drawable.avatar_image_placeholder)
+            .into(binding.profilePictureImageView)
+        binding.jobEdittext.setText(profile.job)
     }
 
 }
