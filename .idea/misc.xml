@@ -11,6 +11,8 @@
         <entry key="app/src/main/res/layout/activity_auth_signin.xml" value="0.3536458333333333" />
         <entry key="app/src/main/res/layout/activity_auth_signup.xml" value="0.3536458333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/home_chats_page_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/home_profile_page_fragment.xml" value="0.3536458333333333" />
         <entry key="app/src/main/res/menu/app_bar_menu.xml" value="0.2578125" />
         <entry key="app/src/main/res/menu/search_bar.xml" value="0.2578125" />
       </map>

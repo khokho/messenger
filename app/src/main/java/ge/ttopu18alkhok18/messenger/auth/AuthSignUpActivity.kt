@@ -9,7 +9,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import ge.ttopu18alkhok18.messenger.MainActivity
+import ge.ttopu18alkhok18.messenger.main.MainActivity
 import ge.ttopu18alkhok18.messenger.databinding.ActivityAuthSignupBinding
 import java.lang.Exception
 

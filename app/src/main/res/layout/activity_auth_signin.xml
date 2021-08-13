@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        style="@style/auth_page_text_input"
+        style="@style/default_text_input"
         android:id="@+id/nickname_edittext"
         android:autofillHints="username"
         android:hint="@string/enter_your_nickname"
@@ -32,7 +32,7 @@
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        style="@style/auth_page_text_input"
+        style="@style/default_text_input"
         android:id="@+id/password_edittext"
         android:autofillHints="password"
         android:hint="@string/enter_your_password"

@@ -2,18 +2,13 @@ package ge.ttopu18alkhok18.messenger.auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isGone
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import ge.ttopu18alkhok18.messenger.MainActivity
-import ge.ttopu18alkhok18.messenger.R
+import ge.ttopu18alkhok18.messenger.main.MainActivity
 import ge.ttopu18alkhok18.messenger.databinding.ActivityAuthSigninBinding
 import java.lang.Exception
 

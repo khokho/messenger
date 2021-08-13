@@ -4,7 +4,8 @@
     android:gravity="center">
 
     <item
-        android:title="home"
+        android:id="@+id/home_action"
+        android:title="@string/home"
         android:icon="@drawable/ic_baseline_home_24"
         android:gravity="center_horizontal"
         app:showAsAction="never"
@@ -13,7 +14,8 @@
 
 
     <item
-        android:title="settings"
+        android:id="@+id/settings_action"
+        android:title="@string/settings"
         android:icon="@drawable/ic_baseline_settings_24"
         android:gravity="center_horizontal"
         app:showAsAction="ifRoom"
