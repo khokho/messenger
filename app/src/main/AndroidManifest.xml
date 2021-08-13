@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ge.ttopu18alkhok18.messenger">
-
+    <!--Adding Read External Storage Permission-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--
+    Allows Glide to monitor connectivity status and restart failed requests if users go from a
+    a disconnected to a connected network state.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,10 +24,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".auth.AuthSignUpActivity">
-        </activity>
-        <activity android:name=".main.MainActivity">
-        </activity>
+        <activity android:name=".auth.AuthSignUpActivity"></activity>
+        <activity android:name=".main.MainActivity"></activity>
     </application>
 
 </manifest>

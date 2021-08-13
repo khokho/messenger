@@ -2,6 +2,7 @@ package ge.ttopu18alkhok18.messenger.auth
 
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.FirebaseDatabase
 
 class AuthInteractor(var presenter: IAuthPresenter) {

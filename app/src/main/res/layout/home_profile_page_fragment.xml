@@ -7,18 +7,19 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/profile_picture_image_view"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginBottom="16dp"
         android:src="@drawable/avatar_image_placeholder"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/username_edittext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/username_edittext"
+        android:enabled="false"
         style="@style/default_text_input"
         android:autofillHints="username"
         android:inputType="text"
@@ -29,33 +30,34 @@
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/job_edittext"
         style="@style/default_text_input"
         android:layout_marginTop="16dp"
         android:autofillHints="text"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/username_edittext"
         tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
+        android:id="@+id/update_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/job_edittext" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_out_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialButton" />
+        app:layout_constraintTop_toBottomOf="@+id/update_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
