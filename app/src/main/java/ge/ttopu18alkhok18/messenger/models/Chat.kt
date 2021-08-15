@@ -7,5 +7,6 @@ data class Chat(
     val chatKey: String? = null,
     val from: String? = null,
     val to: String? = null,
-    val lastMessage: String? = null
+    val lastMessage: Message? = null
+
 )

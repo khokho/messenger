@@ -12,13 +12,19 @@ import com.bumptech.glide.Glide
 import ge.ttopu18alkhok18.messenger.R
 import ge.ttopu18alkhok18.messenger.databinding.HomeChatsPageFragmentBinding
 import ge.ttopu18alkhok18.messenger.databinding.HomeProfilePageFragmentBinding
+import ge.ttopu18alkhok18.messenger.models.Chat
+import ge.ttopu18alkhok18.messenger.startchat.StartChatPresenter
+import ge.ttopu18alkhok18.messenger.startchat.UsersAdapter
 
-class ChatsFragment: Fragment() {
+class ChatsFragment: Fragment(), IChatsView, ChatsRecyclerViewListener {
 
     private var _binding: HomeChatsPageFragmentBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private var presenter = ChatsPresenter(this)
+    private lateinit var adapter: ChatsAdapter
+    private var chatsList: MutableList<Chat> = mutableListOf<Chat>();
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,9 +35,28 @@ class ChatsFragment: Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        adapter = ChatsAdapter(chatsList, this)
+        binding.chatsRv.adapter = adapter
+
+        presenter.fetchChats()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun displayChats(chats: List<Chat>) {
+        chatsList.clear()
+        chatsList.addAll(chats)
+        adapter.notifyDataSetChanged()
+    }
+
+    override fun chatItemClicked(to: Chat) {
+        TODO("Not yet implemented")
     }
 
 }
