@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
@@ -31,7 +32,9 @@ class AuthSignUpActivity: AppCompatActivity(), IAuthView {
 
         if(auth.currentUser != null) {
             openMainActivity()
+            finish()
         }
+        binding.progressBar.isVisible = false
 
         presenter = AuthPresenter(this)
     }
@@ -50,11 +53,14 @@ class AuthSignUpActivity: AppCompatActivity(), IAuthView {
     override fun signUpFail(exception: Exception?) {
         binding.passwordEdittext.setText("")
         Toast.makeText(this, "Sign up failed", Toast.LENGTH_SHORT).show()
+        binding.progressBar.isVisible = false
+        binding.singUpButton.isEnabled = true
     }
 
     fun singUpPressed(view: View) {
         presenter.singUp(Firebase.auth, Firebase.database, binding.nicknameEdittext.text.toString(), binding.passwordEdittext.text.toString(), binding.jobEdittext.text.toString())
+        binding.progressBar.isVisible = true
+        binding.singUpButton.isEnabled = false
     }
-
 
 }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -25,13 +26,14 @@ class AuthSignInActivity : AppCompatActivity(), IAuthView {
         val view = binding.root
         setContentView(view)
 
-        // Initialize Firebase Auth
         val auth = Firebase.auth
-
-
         if(auth.currentUser != null) {
             openMainActivity()
+            finish()
         }
+        binding.progressBar.isVisible = false
+
+
 
         presenter = AuthPresenter(this)
     }
@@ -44,6 +46,8 @@ class AuthSignInActivity : AppCompatActivity(), IAuthView {
 
     fun signInPressed(view: View) {
         presenter.signIn(Firebase.auth, binding.nicknameEdittext.text.toString(), binding.passwordEdittext.text.toString())
+        binding.progressBar.isVisible = true
+        binding.signInButton.isEnabled = false
     }
 
 
@@ -60,6 +64,8 @@ class AuthSignInActivity : AppCompatActivity(), IAuthView {
     override fun signInFail(exception: Exception?) {
         binding.passwordEdittext.setText("")
         Toast.makeText(this, "Sign in failed", Toast.LENGTH_SHORT).show()
+        binding.progressBar.isVisible = false
+        binding.signInButton.isEnabled = true
     }
 
 
