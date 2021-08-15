@@ -26,7 +26,7 @@ class ProfileInteractor(val presenter: IProfilePresenter) {
     }
 
     fun updateJob(job: String) {
-        Firebase.database.getReference("jobs").child(username).setValue(job)
+        Firebase.database.getReference("users").child(username).child("job").setValue(job)
             .addOnSuccessListener {
                 presenter.uploadSucceeded()
             }
