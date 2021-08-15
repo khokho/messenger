@@ -11,18 +11,11 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
 import ge.ttopu18alkhok18.messenger.R
 import ge.ttopu18alkhok18.messenger.auth.AuthSignInActivity
 import ge.ttopu18alkhok18.messenger.databinding.HomeProfilePageFragmentBinding
-import ge.ttopu18alkhok18.messenger.util.Util
 
 class ProfileFragment: Fragment(), IProfileView {
 

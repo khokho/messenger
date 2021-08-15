@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Messenger</string>
-    <string name="search">Search</string>
     <string name="enter_your_nickname">Enter your Nickname</string>
     <string name="profile_placeholder">Profile placeholder</string>
     <string name="enter_your_password">Enter your password</string>
@@ -15,4 +14,7 @@
     <string name="profile_picture">Profile Picture</string>
     <string name="username">username</string>
     <string name="job">job</string>
+    <string name="search">Search</string>
+    <string name="back_button">back button</string>
+    <string name="search_icon">search icon</string>
 </resources>

@@ -39,6 +39,7 @@ class AuthSignInActivity : AppCompatActivity(), IAuthView {
     private fun openMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     fun signInPressed(view: View) {

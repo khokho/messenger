@@ -1,28 +1,20 @@
 package ge.ttopu18alkhok18.messenger.profile
 
-import android.content.Context
 import android.net.Uri
 import android.util.Log
-import com.bumptech.glide.Glide
-import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
-import ge.ttopu18alkhok18.messenger.R
-import ge.ttopu18alkhok18.messenger.util.Util
+import ge.ttopu18alkhok18.messenger.util.username
 
 
 class ProfileInteractor(val presenter: IProfilePresenter) {
 
     // this is supposed to stay same during single interactor
-    val username = Util.mailToUserName(Firebase.auth.currentUser?.email!!)
+    val username = Firebase.auth.currentUser!!.username
 
 
     fun fetchProfile() {

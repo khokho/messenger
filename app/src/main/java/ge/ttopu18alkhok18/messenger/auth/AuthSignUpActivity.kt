@@ -39,6 +39,7 @@ class AuthSignUpActivity: AppCompatActivity(), IAuthView {
     private fun openMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     override fun signUpSuccessful(currentUser: FirebaseUser?) {
