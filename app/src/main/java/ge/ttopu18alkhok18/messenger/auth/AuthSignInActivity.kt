@@ -30,8 +30,7 @@ class AuthSignInActivity : AppCompatActivity(), IAuthView {
 
 
         if(auth.currentUser != null) {
-            auth.signOut()
-//            openMainActivity()
+            openMainActivity()
         }
 
         presenter = AuthPresenter(this)
