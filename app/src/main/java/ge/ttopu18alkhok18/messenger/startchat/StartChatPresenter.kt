@@ -15,7 +15,7 @@ class StartChatPresenter(var view: IStartChatView?) : IStartChatPresenter {
 
     override fun search(s: String) {
         lastSearch = s
-        if(!didBeginFetching && s.length >= 3){
+        if(users.size==0 && !didBeginFetching && s.length >= 3){
             interactor.fetchAllUsersList()
             didBeginFetching = true
         }

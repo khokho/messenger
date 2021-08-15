@@ -1,5 +1,6 @@
 package ge.ttopu18alkhok18.messenger.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,7 @@ import ge.ttopu18alkhok18.messenger.R
 import ge.ttopu18alkhok18.messenger.databinding.ActivityMainBinding
 import ge.ttopu18alkhok18.messenger.chats.ChatsFragment
 import ge.ttopu18alkhok18.messenger.profile.ProfileFragment
+import ge.ttopu18alkhok18.messenger.startchat.StartChatActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,10 +30,12 @@ class MainActivity : AppCompatActivity() {
         Log.v("main_activity", Firebase.auth.currentUser.toString())
 //        Firebase.auth.signOut()
 
-        // Instantiate a ViewPager2 and a PagerAdapter.
 
+        binding.fabButton.setOnClickListener {
+            val intent = Intent(this, StartChatActivity::class.java)
+            startActivity(intent)
+        }
 
-        // The pager adapter, which provides the pages to the view pager widget.
         val pagerAdapter = ScreenSlidePagerAdapter(this)
         binding.pager.adapter = pagerAdapter
 

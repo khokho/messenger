@@ -1,6 +1,7 @@
 package ge.ttopu18alkhok18.messenger.profile
 
 import android.net.Uri
+import ge.ttopu18alkhok18.messenger.models.User
 
 interface IProfilePresenter {
 
@@ -12,6 +13,9 @@ interface IProfilePresenter {
     fun detachView()
 
     // for interactor
-    fun profileFetched(profile: UserProfile)
+    fun profileFetched(profile: User)
+    fun uploadSucceeded()
+    fun uploadFailed()
+
 
 }

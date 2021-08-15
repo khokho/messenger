@@ -26,6 +26,7 @@
 
         <activity android:name=".auth.AuthSignUpActivity"></activity>
         <activity android:name=".main.MainActivity"></activity>
+        <activity android:name=".startchat.StartChatActivity" />
     </application>
 
 </manifest>

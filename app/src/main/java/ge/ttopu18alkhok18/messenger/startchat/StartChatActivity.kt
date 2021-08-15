@@ -4,32 +4,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
+import ge.ttopu18alkhok18.messenger.databinding.ActivityStartchatBinding
 import ge.ttopu18alkhok18.messenger.models.Chat
 import ge.ttopu18alkhok18.messenger.models.User
-import ge.ttopu18alkhok18.messenger.databinding.ActivityStartchatBinding
-
-
-interface IStartChatPresenter {
-    // for view
-    fun search(s: String)
-    fun getModelList(): List<User>
-    fun createChat(to: String)
-    fun requestFailed()
-    fun detachView()
-
-
-    // for interactor
-    fun usersFetched(users: List<User>)
-    fun chatCreated(chat: Chat)
-    fun fetchFailed()
-}
-
-interface IStartChatView {
-    fun seachResultsUpdated()
-    fun chatCreated(chat: Chat)
-    fun requestFailed()
-}
-
 
 
 class StartChatActivity: AppCompatActivity(), IStartChatView, UsersRecyclerViewListener {

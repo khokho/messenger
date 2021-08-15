@@ -4,6 +4,7 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.FirebaseDatabase
+import ge.ttopu18alkhok18.messenger.models.User
 
 class AuthInteractor(var presenter: IAuthPresenter) {
 
@@ -32,7 +33,10 @@ class AuthInteractor(var presenter: IAuthPresenter) {
                 if (it.isSuccessful) {
                     Log.d(TAG, "createUserWithEmail:success")
                     presenter.signUpSuccessful(auth.currentUser)
-                    db.getReference("jobs").child(username).setValue(job)
+                    db.getReference("users").child(username).setValue(User(
+                        username,
+                        job
+                    ))
                 } else {
                     Log.w(TAG, "createUserWithEmail:failure", it.exception)
                     presenter.signUpFail(it.exception)

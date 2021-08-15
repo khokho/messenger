@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isGone
@@ -16,6 +17,7 @@ import com.bumptech.glide.Glide
 import ge.ttopu18alkhok18.messenger.R
 import ge.ttopu18alkhok18.messenger.auth.AuthSignInActivity
 import ge.ttopu18alkhok18.messenger.databinding.HomeProfilePageFragmentBinding
+import ge.ttopu18alkhok18.messenger.models.User
 
 class ProfileFragment: Fragment(), IProfileView {
 
@@ -106,7 +108,7 @@ class ProfileFragment: Fragment(), IProfileView {
     }
 
 
-    override fun displayProfile(profile: UserProfile) {
+    override fun displayProfile(profile: User) {
         binding.usernameEdittext.setText(profile.username)
         Glide
             .with(this)
@@ -116,6 +118,14 @@ class ProfileFragment: Fragment(), IProfileView {
             .into(binding.profilePictureImageView)
         binding.jobEdittext.setText(profile.job)
         stopLoading()
+    }
+
+    override fun uploadSucceeded() {
+        Toast.makeText(this.context, "upload succeeded", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun uploadFailed() {
+        Toast.makeText(this.context, "upload failed", Toast.LENGTH_SHORT).show()
     }
 
 }
