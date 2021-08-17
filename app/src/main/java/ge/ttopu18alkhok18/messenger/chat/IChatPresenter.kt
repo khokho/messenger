@@ -5,9 +5,10 @@ import ge.ttopu18alkhok18.messenger.models.User
 
 interface IChatPresenter {
     fun sendMessage(message: Message)
-    fun startListeningToMessages(toUsername: String, chatKey: String)
-
+    fun start(toUsername: String, chatKey: String)
 
     fun newMessageArrived(message: Message) // could be from me
     fun userFetched(user: User)
+
+    fun detachView()
 }

@@ -32,6 +32,7 @@ class ChatsPresenter(var view: IChatsView): IChatsPresenter {
     }
 
     override fun chatsFetched(chats: List<Chat>) {
+        this.chats.clear()
         this.chats.addAll(chats)
         search(lastSearch)
     }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/bubble_from_me_bg"/>
+    <corners
+        android:bottomLeftRadius="@dimen/bubble_radius"
+        android:topRightRadius="@dimen/bubble_radius"
+        android:topLeftRadius="@dimen/bubble_radius"/>
+    <padding
+        android:left="@dimen/bubble_padding"
+        android:right="@dimen/bubble_padding"
+        android:top="@dimen/bubble_padding"
+        android:bottom="@dimen/bubble_padding"/>
+</shape>

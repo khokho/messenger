@@ -12,7 +12,6 @@ import ge.ttopu18alkhok18.messenger.models.User
 
 class ChatInteractor(val presenter: IChatPresenter) {
 
-
     fun setUpMessageListener(chatKey: String) {
 
         val childEventListener = object : ChildEventListener {
@@ -45,8 +44,14 @@ class ChatInteractor(val presenter: IChatPresenter) {
             }
     }
 
+    fun sendMessage(chatKey: String, message: Message, to: String) {
+        Firebase.database.getReference("messages").child(chatKey)
+            .push().setValue(message)
 
-
-
+        Firebase.database.getReference("chats").child(message.from!!).child(to)
+            .child("lastMessage").setValue(message)
+        Firebase.database.getReference("chats").child(to).child(message.from)
+            .child("lastMessage").setValue(message)
+    }
 
 }

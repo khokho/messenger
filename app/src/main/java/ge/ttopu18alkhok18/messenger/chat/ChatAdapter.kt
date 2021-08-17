@@ -1,8 +1,10 @@
 package ge.ttopu18alkhok18.messenger.chat
 
 import android.view.LayoutInflater
+import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
@@ -32,15 +34,14 @@ class ChatAdapter(val messages: List<Message>):
 
         lateinit var boundData: Message
 
+        val messageTextView = view.findViewById<TextView>(R.id.message_text_view)
+        val timeTextView = view.findViewById<TextView>(R.id.time_text_view)
         fun bind(data: Message) {
             boundData = data
-
-
+            messageTextView.setText(data.text)
+            timeTextView.setText(data.timestamp.toString())
         }
 
-        init {
-
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatAdapter.MessageViewHolder {

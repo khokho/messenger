@@ -12,4 +12,6 @@
     <color name="text_grey">#666666</color>
     <color name="transparent">#00000000</color>
     <color name="input_bg_gray">#DDD</color>
+    <color name="bubble_from_me_bg">#5479f1</color>
+    <color name="bubble_to_me_bg">#f4f6ff</color>
 </resources>
