@@ -17,4 +17,6 @@
     <string name="search">Search</string>
     <string name="back_button">back button</string>
     <string name="search_icon">search icon</string>
+    <string name="type_message_here">type message here</string>
+    <string name="send">SEND</string>
 </resources>
