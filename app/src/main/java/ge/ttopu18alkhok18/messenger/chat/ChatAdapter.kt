@@ -16,6 +16,7 @@ import ge.ttopu18alkhok18.messenger.databinding.UserItemBinding
 import ge.ttopu18alkhok18.messenger.models.Message
 import ge.ttopu18alkhok18.messenger.models.User
 import ge.ttopu18alkhok18.messenger.startchat.UsersAdapter
+import ge.ttopu18alkhok18.messenger.util.formatTime
 import ge.ttopu18alkhok18.messenger.util.username
 
 class ChatAdapter(val messages: List<Message>):
@@ -39,7 +40,7 @@ class ChatAdapter(val messages: List<Message>):
         fun bind(data: Message) {
             boundData = data
             messageTextView.setText(data.text)
-            timeTextView.setText(data.timestamp.toString())
+            timeTextView.setText(data.timestamp?.formatTime(System.currentTimeMillis()) ?: "")
         }
 
     }

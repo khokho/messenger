@@ -19,4 +19,6 @@
     <string name="search_icon">search icon</string>
     <string name="type_message_here">type message here</string>
     <string name="send">SEND</string>
+    <string name="send_message_button">send message button</string>
+    <string name="message">Message</string>
 </resources>

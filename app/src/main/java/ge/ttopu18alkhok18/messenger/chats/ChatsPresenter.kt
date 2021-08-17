@@ -20,10 +20,7 @@ class ChatsPresenter(var view: IChatsView): IChatsPresenter {
 
     override fun search(s: String) {
         lastSearch = s
-        if(s.length < 3) {
-            view.displayChats(chats)
-            return
-        }
+        view.displayChats(chats)
         searchRes.clear()
         searchRes.addAll(chats.filter {
             it.to!!.contains(s)

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isGone
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -66,6 +67,7 @@ class ChatsFragment: Fragment(), IChatsView, ChatsRecyclerViewListener {
         chatsList.clear()
         chatsList.addAll(chats)
         adapter.notifyDataSetChanged()
+        binding.progressBar.isGone = true
     }
 
     override fun chatItemClicked(chat: Chat) {

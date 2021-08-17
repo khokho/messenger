@@ -13,8 +13,12 @@ class ChatsInteractor(val presenter: IChatsPresenter){
     fun fetchChats() {
         Firebase.database.getReference("chats").child(username).get()
             .addOnSuccessListener {
-                val chats = it.getValue<HashMap<String, Chat>>()!!.values.toList()
-                presenter.chatsFetched(chats)
+                val chats = it.getValue<HashMap<String, Chat>>()
+                if (chats != null) {
+                    presenter.chatsFetched(chats.values.toList())
+                } else {
+                    presenter.chatsFetched(listOf())
+                }
             }
     }
 

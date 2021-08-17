@@ -56,7 +56,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
-                        android:text="@string/search"
+                        android:hint="@string/search"
                         android:textSize="20sp"/>
                 </LinearLayout>
 
@@ -74,31 +74,13 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-<!--    <androidx.core.widget.NestedScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
-
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:padding="10dp"-->
-<!--                android:textSize="50sp"-->
-<!--                android:text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum non dolor a aliquet. Cras tempor lorem nec lorem suscipit eleifend. Quisque vitae cursus nisi. Nullam luctus risus tellus, dignissim finibus felis aliquet non. Vivamus lectus leo, consequat at mi at, aliquam fermentum nulla. Aliquam elit turpis, ultricies ac aliquam sit amet, pellentesque non mauris. Vestibulum sed pulvinar odio. Aenean rhoncus, ante ut faucibus posuere, risus urna mollis metus, quis lobortis arcu turpis sed lacus. Suspendisse accumsan nibh in euismod blandit.-->
-
-<!--Pellentesque sapien ipsum, mattis vel vehicula vel, condimentum id libero. Praesent lacinia dui et risus consequat iaculis. Aenean sed felis in dolor tincidunt ornare cursus sit amet enim. Pellentesque a nisi quis tellus ornare iaculis. Nulla facilisi. Nulla facilisi. Vivamus vel nisi erat. Etiam ut mollis magna. Nulla leo magna, varius posuere volutpat placerat, ultricies sit amet dui. Morbi tristique leo vel eros suscipit ullamcorper et ultricies eros. Vestibulum placerat felis eget eros fermentum dignissim.-->
-
-<!--Nulla non egestas ante. Suspendisse pulvinar nunc sit amet nisl tristique, viverra gravida odio bibendum. Praesent posuere et risus in viverra. Vestibulum facilisis urna quis laoreet efficitur. Integer et odio ut augue bibendum pulvinar a ut eros. Aenean sagittis urna lacinia ante finibus scelerisque. Curabitur dapibus luctus sapien, non vehicula massa suscipit vitae.-->
-
-<!--Ut malesuada bibendum elit id mollis. Phasellus vel elit sit amet quam consectetur aliquet in ut velit. Vivamus imperdiet condimentum leo. Nulla leo arcu, rhoncus et dignissim vel, sodales a turpis. Duis accumsan congue leo, nec euismod ante luctus sed. Phasellus scelerisque dui vel tempus commodo. Quisque ornare metus a pretium ultrices. Integer tempor eros urna, at sollicitudin erat molestie sit amet. Maecenas sit amet viverra ipsum, eget euismod sapien. "/>-->
-<!--        </LinearLayout>-->
-
-<!--    </androidx.core.widget.NestedScrollView>-->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
