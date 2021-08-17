@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import ge.ttopu18alkhok18.messenger.R
@@ -42,6 +43,11 @@ class ChatsFragment: Fragment(), IChatsView, ChatsRecyclerViewListener {
         binding.chatsRv.adapter = adapter
 
         presenter.fetchChats()
+
+        binding.searchEt.doOnTextChanged { text, _, _, _ ->
+            val s = text.toString()
+            presenter.search(s)
+        }
     }
 
     override fun onDestroyView() {

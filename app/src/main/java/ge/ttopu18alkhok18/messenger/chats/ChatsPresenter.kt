@@ -1,8 +1,16 @@
 package ge.ttopu18alkhok18.messenger.chats
 
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import ge.ttopu18alkhok18.messenger.models.Chat
+import ge.ttopu18alkhok18.messenger.util.username
 
 class ChatsPresenter(var view: IChatsView): IChatsPresenter {
+
+    val chats = mutableListOf<Chat>()
+    val searchRes = mutableListOf<Chat>()
+
+    var lastSearch = ""
 
     var interactor = ChatsInteractor(this)
 
@@ -10,8 +18,22 @@ class ChatsPresenter(var view: IChatsView): IChatsPresenter {
         interactor.fetchChats()
     }
 
+    override fun search(s: String) {
+        lastSearch = s
+        if(s.length < 3) {
+            view.displayChats(chats)
+            return
+        }
+        searchRes.clear()
+        searchRes.addAll(chats.filter {
+            it.to!!.contains(s)
+        })
+        view.displayChats(searchRes)
+    }
+
     override fun chatsFetched(chats: List<Chat>) {
-        view.displayChats(chats)
+        this.chats.addAll(chats)
+        search(lastSearch)
     }
 
 }
